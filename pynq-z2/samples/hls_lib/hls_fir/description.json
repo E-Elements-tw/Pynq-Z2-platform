@@ -1,0 +1,41 @@
+{
+    "example": "Synthesizeable FIR Filter",
+    "overview": "Implementation of an HLS synthesizeable 84th order FIR filter on 4-byte integer values. The coefficients are fixed, and the data is added one element at a time for each call of the function (ie. after 84 function calls the first real data is produced). By default the function \u0027cpp_FIR()\u0027 is marked for hardware, and you can build the project. ",
+    "board": [
+        "zc702",
+        "zc706",
+        "microzed",
+        "zed",
+        "zybo",
+        "zcu102",
+        "xz7_platform",
+        "pynq-z2",
+        "mpsoc_3eg",
+    ],
+    "os": [
+        "Linux",
+        "Standalone"
+    ],
+    "runtime": [
+        "C/C++"
+    ],
+    "accelerators": [
+        {
+            "name": "cpp_FIR",
+            "location": "cpp_FIR.cpp"
+        }
+    ],
+    "contributors" : [
+        {
+            "group" : "Xilinx, Inc.",
+            "url" : "http://www.xilinx.com"
+        }
+    ],
+    "revision" : [
+        {
+            "date" : "2017",
+            "version" : "1.0",
+            "description" : "Initial revision"
+        }
+    ]
+}

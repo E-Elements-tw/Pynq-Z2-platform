@@ -1,0 +1,45 @@
+{
+    "example": "Matrix Multiplication and Addition (area reduced)",
+    "overview": "Implementation of an area-reduced 32x32 matrix multiplication followed by a matrix addition using 4-byte float values. In this version, the code is parallelized less which results in less resource usage (to fit on smaller devices, or allow for more functions to be accelerated). By default the function \u0027mmult()\u0027 and \u0027madd()\u0027 are marked for hardware, and you can build the project. SDSoC pragmas are used to specify the amount of data that will be transferred to the accelerator.",
+    "board": [
+        "zc702",
+        "zc706",
+        "microzed",
+        "zed",
+        "zybo",
+        "zcu102",
+        "xz7_platform",
+        "pynq-z2",
+        "mpsoc_3eg",
+    ],
+    "os": [
+        "Linux",
+        "Standalone"
+    ],
+    "runtime": [
+        "C/C++"
+    ],
+    "accelerators": [
+        {
+            "name": "mmult",
+            "location": "mmult.cpp"
+        },
+        {
+            "name": "madd",
+            "location": "madd.cpp"
+        }
+    ],
+    "contributors" : [
+        {
+            "group" : "Xilinx, Inc.",
+            "url" : "http://www.xilinx.com"
+        }
+    ],
+    "revision" : [
+        {
+            "date" : "2017",
+            "version" : "1.0",
+            "description" : "Initial revision"
+        }
+    ]
+}

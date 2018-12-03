@@ -1,0 +1,39 @@
+{
+    "example": "Matrix Multiplication Data Size",
+    "overview": "Implementation of a variable dimension size (square) matrix multiplication using 4-byte float values. Matrix dimension is a parameter to the function \u0027mmult_accel()\u0027. By default the function \u0027mmult_accel()\u0027 is marked for hardware, and you can build the project. SDSoC pragmas are used to specify the amount of data that will be transferred to the accelerator.",
+    "board": [
+        "zc702",
+        "zc706",
+        "zed",
+        "zcu102",
+        "xz7_platform",
+        "pynq-z2",
+        "mpsoc_3eg",
+    ],
+    "os": [
+        "Linux",
+        "Standalone"
+    ],
+    "runtime": [
+        "C/C++"
+    ],
+    "accelerators": [
+        {
+            "name": "mmult_accel",
+            "location": "mmult_accel.cpp"
+        }
+    ],
+    "contributors" : [
+        {
+            "group" : "Xilinx, Inc.",
+            "url" : "http://www.xilinx.com"
+        }
+    ],
+    "revision" : [
+        {
+            "date" : "2017",
+            "version" : "1.0",
+            "description" : "Initial revision"
+        }
+    ]
+}

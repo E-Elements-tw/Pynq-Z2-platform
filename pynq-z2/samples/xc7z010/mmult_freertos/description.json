@@ -1,0 +1,34 @@
+{
+    "example": "Matrix Multiplication (area reduced, FreeRTOS)",
+    "overview": "Implementation of an area-reduced floating point matrix multiplication for FreeRTOS. In this version, the code is parallelized less which results in less resource usage (to fit on smaller devices, or allow for more functions to be accelerated).  By default the function \u0027mmult()\u0027 is marked for hardware, and you can build the project. SDSoC pragmas are used to specify the amount of data that will be transferred to the accelerator.",
+    "board": [
+        "microzed",
+        "zed",
+        "zybo",
+        "xz7_platform",
+        "pynq-z2",
+        "mpsoc_3eg",
+    ],
+    "os": [
+        "FreeRTOS"
+    ],
+    "accelerators": [
+        {
+            "name": "mmult_accel",
+            "location": "mmult_accel.cpp"
+        }
+    ],
+    "contributors" : [
+        {
+            "group" : "Xilinx, Inc.",
+            "url" : "http://www.xilinx.com"
+        }
+    ],
+    "revision" : [
+        {
+            "date" : "2017",
+            "version" : "1.0",
+            "description" : "Initial revision"
+        }
+    ]
+}

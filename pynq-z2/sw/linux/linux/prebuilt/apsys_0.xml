@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<cf:model cf:cpu="cortex_a9" cf:partition="0" cf:prefix="_p0_" cf:name="top" xd:type="design" xmlns:xd="http://www.xilinx.com/xd" xmlns:cf="http://www.xilinx.com/connections">
+  <cf:block cf:name="hwblk_CONVOLUTION_LAYER_1">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_1" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="swblk_CONVOLUTION_LAYER_1">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_1" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:block cf:name="hwblk_CONVOLUTION_LAYER_2">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_2" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="swblk_CONVOLUTION_LAYER_2">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_2" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:block cf:name="hwblk_CONVOLUTION_LAYER_3">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_3" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="swblk_CONVOLUTION_LAYER_3">
+    <cf:port cf:name="cmd_CONVOLUTION_LAYER_3" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="input_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="weights_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="bias_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="output_feature_offset" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="init" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:comp cf:name="pynq-z2" xd:componentRef="pynq-z2" xd:clockId="2"/>
+  <cf:comp cf:name="CONVOLUTION_LAYER_1_1" xd:componentRef="CONVOLUTION_LAYER_1" xd:clockId="2"/>
+  <cf:comp cf:name="CONVOLUTION_LAYER_2_1" xd:componentRef="CONVOLUTION_LAYER_2" xd:clockId="2"/>
+  <cf:comp cf:name="CONVOLUTION_LAYER_3_1" xd:componentRef="CONVOLUTION_LAYER_3" xd:clockId="2"/>
+  <cf:instance cf:name="hwinst_CONVOLUTION_LAYER_1_1" cf:blockName="hwblk_CONVOLUTION_LAYER_1" cf:compName="CONVOLUTION_LAYER_1_1">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_1" cf:compPort="ap_ctrl" xd:register="0x8"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="m_axi_input_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0xC"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="m_axi_weights" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x10"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="m_axi_bias" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x14"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="m_axi_output_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x18"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="init" xd:paddedWidth="32" xd:register="0x1C"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_CONVOLUTION_LAYER_1_1" cf:blockName="swblk_CONVOLUTION_LAYER_1" cf:compName="pynq-z2">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_1" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="processing_system7_0_S_AXI_HP2" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="processing_system7_0_S_AXI_HP1" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="processing_system7_0_S_AXI_HP0" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="processing_system7_0_S_AXI_HP3" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+  </cf:instance>
+  <cf:instance cf:name="hwinst_CONVOLUTION_LAYER_2_1" cf:blockName="hwblk_CONVOLUTION_LAYER_2" cf:compName="CONVOLUTION_LAYER_2_1">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_2" cf:compPort="ap_ctrl" xd:register="0x8"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="m_axi_input_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0xC"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="m_axi_weights" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x10"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="m_axi_bias" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x14"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="m_axi_output_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x18"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="init" xd:paddedWidth="32" xd:register="0x1C"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_CONVOLUTION_LAYER_2_1" cf:blockName="swblk_CONVOLUTION_LAYER_2" cf:compName="pynq-z2">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_2" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+  </cf:instance>
+  <cf:instance cf:name="hwinst_CONVOLUTION_LAYER_3_1" cf:blockName="hwblk_CONVOLUTION_LAYER_3" cf:compName="CONVOLUTION_LAYER_3_1">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_3" cf:compPort="ap_ctrl" xd:register="0x8"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="m_axi_input_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0xC"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="m_axi_weights" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x10"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="m_axi_bias" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x14"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="m_axi_output_feature" xd:paddedWidth="32" cf:ctrlPort="ap_ctrl" xd:register="0x18"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="init" xd:paddedWidth="32" xd:register="0x1C"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_CONVOLUTION_LAYER_3_1" cf:blockName="swblk_CONVOLUTION_LAYER_3" cf:compName="pynq-z2">
+    <cf:portMap cf:blockPort="cmd_CONVOLUTION_LAYER_3" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="input_feature_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="weights_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="bias_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="output_feature_offset" cf:compPort="processing_system7_0_S_AXI_ACP" cf:ctrlPort="processing_system7_0_M_AXI_GP0"/>
+    <cf:portMap cf:blockPort="init" cf:compPort="processing_system7_0_M_AXI_GP0"/>
+  </cf:instance>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="cmd_CONVOLUTION_LAYER_1" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="cmd_CONVOLUTION_LAYER_1">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="input_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="input_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_1_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="weights_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="weights_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_1_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="bias_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="bias_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_1_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="output_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="output_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_1_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_1_1" cf:srcPort="init" cf:dstInst="hwinst_CONVOLUTION_LAYER_1_1" cf:dstPort="init">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="cmd_CONVOLUTION_LAYER_2" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="cmd_CONVOLUTION_LAYER_2">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="input_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="input_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_2_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="weights_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="weights_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_2_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="bias_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="bias_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_2_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="output_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="output_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_2_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_2_1" cf:srcPort="init" cf:dstInst="hwinst_CONVOLUTION_LAYER_2_1" cf:dstPort="init">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="cmd_CONVOLUTION_LAYER_3" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="cmd_CONVOLUTION_LAYER_3">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="input_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="input_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_3_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="weights_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="weights_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_3_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="bias_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="bias_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_3_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="output_feature_offset" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="output_feature_offset">
+    <cf:dataMover cf:compName="CONVOLUTION_LAYER_3_1" cf:softwareLib="zero_copy"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_CONVOLUTION_LAYER_3_1" cf:srcPort="init" cf:dstInst="hwinst_CONVOLUTION_LAYER_3_1" cf:dstPort="init">
+    <cf:dataMover cf:compName="pynq-z2" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+</cf:model>

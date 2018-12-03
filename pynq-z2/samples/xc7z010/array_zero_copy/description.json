@@ -1,0 +1,41 @@
+{
+    "example": "Array zero_copy (\u0027Short\u0027 build time)",
+    "overview": "Simple array copy using the zero_copy datamover.  This example is useful for exploring SDSoC flows, as the bitstream (firmware) build is relatively quick.",
+    "board": [
+        "zc702",
+        "zc706",
+        "zed",
+        "microzed",
+        "zybo",
+        "zcu102",
+        "xz7_platform",
+        "mpsoc_2eg",
+        "mpsoc_3eg",
+    ],
+    "os": [
+        "Linux",
+        "Standalone"
+    ],
+    "runtime": [
+        "C/C++"
+    ],
+    "accelerators": [
+        {
+            "name": "array_zero_copy",
+            "location": "array_zero_copy.cpp"
+        }
+    ],
+    "contributors" : [
+        {
+            "group" : "Xilinx, Inc.",
+            "url" : "http://www.xilinx.com"
+        }
+    ],
+    "revision" : [
+        {
+            "date" : "2017",
+            "version" : "1.0",
+            "description" : "Initial revision"
+        }
+    ]
+}
